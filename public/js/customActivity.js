@@ -1,84 +1,87 @@
 define([
-    'postmonger'
+  'postmonger'
 ], function (
-    Postmonger
+  Postmonger
 ) {
-    'use strict';
+  'use strict';
 
-    var connection = new Postmonger.Session();
-    var authTokens = {};
-    var payload = {};
-    $(window).ready(onRender);
+  var connection = new Postmonger.Session();
+  var authTokens = {};
+  var payload = {};
+  $(window).ready(onRender);
 
-    connection.on('initActivity', initialize);
-    connection.on('requestedTokens', onGetTokens);
-    connection.on('requestedEndpoints', onGetEndpoints);
+  connection.on('initActivity', initialize);
+  connection.on('requestedTokens', onGetTokens);
+  connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', save);
-   
-    function onRender() {
-        // JB will respond the first time 'ready' is called with 'initActivity'
-        connection.trigger('ready');
+  connection.on('clickedNext', save);
 
-        connection.trigger('requestTokens');
-        connection.trigger('requestEndpoints');
+  function onRender() {
+    // JB will respond the first time 'ready' is called with 'initActivity'
+    connection.trigger('ready');
 
+    connection.trigger('requestTokens');
+    connection.trigger('requestEndpoints');
+
+  }
+
+  function initialize(data) {
+    console.log(data);
+    if (data) {
+      payload = data;
     }
 
-    function initialize(data) {
-        console.log(data);
-        if (data) {
-            payload = data;
-        }
-        
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
+    var hasInArguments = Boolean(
+      payload['arguments'] &&
+      payload['arguments'].execute &&
+      payload['arguments'].execute.inArguments &&
+      payload['arguments'].execute.inArguments.length > 0
+    );
 
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
+    var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        console.log(inArguments);
+    console.log(inArguments);
 
-        $.each(inArguments, function (index, inArgument) {
-            $.each(inArgument, function (key, val) {
-                
-              
-            });
-        });
+    $.each(inArguments, function (index, inArgument) {
+      $.each(inArgument, function (key, val) {
 
-        connection.trigger('updateButton', {
-            button: 'next',
-            text: 'done',
-            visible: true
-        });
-    }
 
-    function onGetTokens(tokens) {
-        console.log(tokens);
-        authTokens = tokens;
-    }
+      });
+    });
 
-    function onGetEndpoints(endpoints) {
-        console.log(endpoints);
-    }
+    connection.trigger('updateButton', {
+      button: 'next',
+      text: 'done',
+      visible: true
+    });
+  }
 
-    function save() {
-        var postcardURLValue = $('#postcard-url').val();
-        var postcardTextValue = $('#postcard-text').val();
+  function onGetTokens(tokens) {
+    console.log(tokens);
+    authTokens = tokens;
+  }
 
-        payload['arguments'].execute.inArguments = [{
-            "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
-        }];
-        
-        payload['metaData'].isConfigured = true;
+  function onGetEndpoints(endpoints) {
+    console.log(endpoints);
+  }
 
-        console.log(payload);
-        connection.trigger('updateActivity', payload);
-    }
+  function save() {
+    var postcardURLValue = $('#postcard-url').val();
+    var postcardTextValue = $('#postcard-text').val();
+
+    console.log('postcardURLValue: ', postcardURLValue)
+    console.log('postcardTextValue: ', postcardTextValue)
+
+    payload['arguments'].execute.inArguments = [{
+      "tokens": authTokens,
+      "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
+    }];
+
+    payload['metaData'].isConfigured = true;
+
+    console.log(payload);
+    connection.trigger('updateActivity', payload);
+  }
 
 
 });
