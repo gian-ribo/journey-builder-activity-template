@@ -66,11 +66,11 @@ define([
   }
 
   function save() {
-    var postcardURLValue = $('#postcard-url').val();
-    var postcardTextValue = $('#postcard-text').val();
+    var title = $('#title').val();
+    var text = $('#text').val();
 
-    console.log('postcardURLValue: ', postcardURLValue)
-    console.log('postcardTextValue: ', postcardTextValue)
+    console.log('title: ', title)
+    console.log('text: ', title)
 
     payload['arguments'].execute.inArguments = [{
       "tokens": authTokens,

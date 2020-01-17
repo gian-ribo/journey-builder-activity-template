@@ -9,13 +9,16 @@ var path = require('path');
 var request = require('request');
 var routes = require('./routes');
 var activity = require('./routes/activity');
+var cors = require('cors')
 
 var app = express();
+app.use(cors())
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.raw({type: 'application/jwt'}));
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //app.use(express.methodOverride());
 //app.use(express.favicon());

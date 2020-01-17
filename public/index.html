@@ -1,42 +1,27 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
 
-<head>
-  <title></title>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/styles.css">
-  <script type="text/javascript" src="js/require.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      var config = {
-        baseUrl: 'js'
-      };
-
-      var dependencies = [
-        'customActivity'
-      ];
-
-      require(config, dependencies);
-    })();
-  </script>
-</head>
-
-<body>
-  <div id="step1" class="step">
-    <div class="slds-grid">
-
-      <main class="slds-col">
-
-        <h1>welcome to your activity!</h1>
-      </main>
-
-
+  <body>
+    <div id="step1" class="step">
+      <div class="slds-grid">
+        <main class="slds-col">
+          <h1>Create Your Notification!</h1>
+          Title: <input type="text" id="title"><br>
+          <br>
+          Text: <textarea id="text" cols="40" rows="5"></textarea><br>
+          <button label='CRIPPA' onclick="handleClick()">Save</button>
+        </main>
+      </div>
     </div>
-
-  </div>
-</body>
-
+  </body>
 </html>
