@@ -79,7 +79,7 @@ define([
 
     payload['metaData'].isConfigured = true;
 
-    Object.keys.map(x => {
+    Object.keys().map(x => {
       console.log(x, payload[x])
     })
     connection.trigger('updateActivity', payload);
