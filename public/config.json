@@ -17,7 +17,10 @@
     "execute": {
       "inArguments":[
         {
-          "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
+          "email": "{{Contact.Attribute.PushNotificationTest.Email}}",
+          "firstName": "{{Contact.Attribute.PushNotificationTest.firstName}}",
+          "lastName": "{{Contact.Attribute.PushNotificationTest.lastName}}",
+          "contactId": "{{Contact.Attribute.PushNotificationTest.contactId}}"
         }									
       ],
       "outArguments": [],
