@@ -44,8 +44,8 @@ define([
 
     $.each(inArguments, function (index, inArgument) {
       $.each(inArgument, function (key, val) {
-
-
+        console.log("key ", key)
+        console.log("val ", val)
       });
     });
 
@@ -79,7 +79,9 @@ define([
 
     payload['metaData'].isConfigured = true;
 
-    console.log(JSON.parse(JSON.stringify(payload)));
+    Object.keys.map(x => {
+      console.log(x, payload[x])
+    })
     connection.trigger('updateActivity', payload);
   }
 });
