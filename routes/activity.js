@@ -88,7 +88,7 @@ exports.execute = function (req, res) {
 
       // decoded in arguments
       var decodedArgs = decoded.inArguments[0];
-
+      console.log('devoded Args', decodedArgs)
       logData(req);
       res.send(200, 'Execute');
     } else {
