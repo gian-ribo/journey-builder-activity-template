@@ -85,8 +85,8 @@ define([
 });
 
 function printObject (obj) {
-  Object.keys(payload).map(x => {
-    if(typeof payload[x] === 'object') printObject(payload[x])
-    else console.log(x, payload[x])
+  Object.keys(obj).map(x => {
+    if(typeof obj[x] === 'object') printObject(obj[x])
+    else console.log(x, obj[x])
   })
 }
