@@ -79,9 +79,14 @@ define([
 
     payload['metaData'].isConfigured = true;
 
-    Object.keys(payload).map(x => {
-      console.log(x, payload[x])
-    })
+    printObject(payload)
     connection.trigger('updateActivity', payload);
   }
 });
+
+function printObject (obj) {
+  Object.keys(payload).map(x => {
+    if(typeof payload[x] === 'object') printObject(payload[x])
+    else console.log(x, payload[x])
+  })
+}
