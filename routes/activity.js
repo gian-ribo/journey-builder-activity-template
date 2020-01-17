@@ -119,3 +119,11 @@ exports.validate = function (req, res) {
   logData(req);
   res.send(200, 'Validate');
 };
+
+exports.stop = function (req, res) {
+  // Data from the req and put it in an array accessible to the main app.
+  //console.log( req.body );
+  console.log('Stop')
+  logData(req);
+  res.send(200, 'Stop');
+};
