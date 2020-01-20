@@ -74,10 +74,10 @@ define([
 
     payload['arguments'].execute.inArguments = [{
       "tokens": authTokens,
-      "email": "{{Event.DEAudience-b3db1a0b-85e5-b9c8-e873-5a5db3f60eaf.Email}}",
-      "firstName": "{{Event.DEAudience-b3db1a0b-85e5-b9c8-e873-5a5db3f60eaf.FirstName}}",
-      "lastName": "{{Event.DEAudience-b3db1a0b-85e5-b9c8-e873-5a5db3f60eaf.LastName}}",
-      "contactId": "{{Event.DEAudience-b3db1a0b-85e5-b9c8-e873-5a5db3f60eaf.ContactId}}"
+      "email": "{{Contact.Default.Email}}",
+      "firstName": "{{Contact.Default.FirstName}}",
+      "lastName": "{{Contact.Default.LastName}}",
+      "contactId": "{{Contact.Default.ContactId}}"
     }];
 
     payload['metaData'].isConfigured = true;
