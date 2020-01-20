@@ -82,6 +82,8 @@ define([
       "contactId": "{{Contact.Attribute." + dataExtensionName + ".\"ContactId\"}}"
     }];
 
+    console.log(payload['arguments'].execute.inArguments)
+
     payload['metaData'].isConfigured = true;
     connection.trigger('updateActivity', payload);
   }

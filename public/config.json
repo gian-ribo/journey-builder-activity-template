@@ -17,10 +17,10 @@
     "execute": {
       "inArguments":[
         {
-          // "email": "{{Contact.Attribute.\"Push notification test\".\"Email\"}}",
-          // "firstName": "{{Contact.Attribute.\"Push notification test\".\"First Name\"}}",
-          // "lastName": "{{Contact.Attribute.\"Push notification test\".\"Last Name\"}}",
-          // "contactId": "{{Contact.Attribute.\"Push notification test\".\"ContactId\"}}"
+          "email": "{{Contact.Attribute.\"Push notification test\".\"Email\"}}",
+          "firstName": "{{Contact.Attribute.\"Push notification test\".\"First Name\"}}",
+          "lastName": "{{Contact.Attribute.\"Push notification test\".\"Last Name\"}}",
+          "contactId": "{{Contact.Attribute.\"Push notification test\".\"ContactId\"}}"
         }									
       ],
       "outArguments": [],
