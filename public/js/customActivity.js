@@ -74,10 +74,10 @@ define([
 
     payload['arguments'].execute.inArguments = [{
       "tokens": authTokens,
-      "email": "{{Contact.Attribute.PushNotificationCustomActivity.Email}}",
-      "firstName": "{{Contact.Attribute.PushNotificationCustomActivity.FirstName}}",
-      "lastName": "{{Contact.Attribute.PushNotificationCustomActivity.LastName}}",
-      "contactId": "{{Contact.Attribute.PushNotificationCustomActivity.ContactId}}"
+      "email": "{{Contact.Attribute.\"Push notification test\".\"Email\"}}",
+      "firstName": "{{Contact.Attribute.\"Push notification test\".\"First Name\"}}",
+      "lastName": "{{Contact.Attribute.\"Push notification test\".\"Last Name\"}}",
+      "contactId": "{{Contact.Attribute.\"Push notification test\".\"ContactId\"}}"
     }];
 
     payload['metaData'].isConfigured = true;
