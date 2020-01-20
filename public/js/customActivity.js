@@ -76,10 +76,10 @@ define([
 
     payload['arguments'].execute.inArguments = [{
       "tokens": authTokens,
-      "email": "{{Contact.Attribute." + dataExtensionName + ".\"Email\"}}",
-      "firstName": "{{Contact.Attribute." + dataExtensionName + ".\"First Name\"}}",
-      "lastName": "{{Contact.Attribute." + dataExtensionName + ".\"Last Name\"}}",
-      "contactId": "{{Contact.Attribute." + dataExtensionName + ".\"ContactId\"}}"
+      "email": "{{Contact.Attribute.\"" + dataExtensionName + "\".\"Email\"}}",
+      "firstName": "{{Contact.Attribute.\"" + dataExtensionName + "\".\"First Name\"}}",
+      "lastName": "{{Contact.Attribute.\"" + dataExtensionName + "\".\"Last Name\"}}",
+      "contactId": "{{Contact.Attribute.\"" + dataExtensionName + "\".\"ContactId\"}}"
     }];
 
     console.log(payload['arguments'].execute.inArguments)
