@@ -87,8 +87,9 @@ exports.execute = function (req, res) {
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
 
       // decoded in arguments
-      var decodedArgs = decoded.inArguments[0];
-      console.log('devoded Args', decodedArgs)
+      let decodedArgs = decoded.inArguments[0];
+      console.log('DECODED: ', decoded)
+      console.log('decoded Args:', decodedArgs)
       logData(req);
       res.send(200, 'Execute');
     } else {
@@ -97,7 +98,6 @@ exports.execute = function (req, res) {
     }
   });
 };
-
 
 /*
  * POST Handler for /publish/ route of Activity.
