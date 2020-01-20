@@ -68,16 +68,18 @@ define([
   function save() {
     var title = $('#title').val();
     var text = $('#text').val();
+    var dataExtensionName = $('#data-extension').val()
 
     console.log('title: ', title)
     console.log('text: ', title)
+    console.log('dataExtensionName: ', dataExtensionName)
 
     payload['arguments'].execute.inArguments = [{
       "tokens": authTokens,
-      "email": "{{Contact.Attribute.\"Push notification test\".\"Email\"}}",
-      "firstName": "{{Contact.Attribute.\"Push notification test\".\"First Name\"}}",
-      "lastName": "{{Contact.Attribute.\"Push notification test\".\"Last Name\"}}",
-      "contactId": "{{Contact.Attribute.\"Push notification test\".\"ContactId\"}}"
+      "email": "{{Contact.Attribute." + dataExtensionName + ".\"Email\"}}",
+      "firstName": "{{Contact.Attribute." + dataExtensionName + ".\"First Name\"}}",
+      "lastName": "{{Contact.Attribute." + dataExtensionName + ".\"Last Name\"}}",
+      "contactId": "{{Contact.Attribute." + dataExtensionName + ".\"ContactId\"}}"
     }];
 
     payload['metaData'].isConfigured = true;
