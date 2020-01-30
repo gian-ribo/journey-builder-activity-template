@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/require.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
 
-  <body>
-    <div id="step1" class="step">
-      <div class="slds-grid">
-        <main class="slds-col">
-          Data Exctension Name: <input type="text" id="data-extension"><br>
-          <br>
-          <h1>Create Your Notification!</h1>
-          Title: <input type="text" id="title"><br>
-          <br>
-          Text: <textarea id="text" cols="40" rows="5"></textarea><br>
-          <button label='CRIPPA' onclick="handleClick()">Save</button>
-        </main>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/salesforce-lightning-design-system.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/require.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/languageListHandler.js"></script>
+  <script type="text/javascript" src="js/languageList.js"></script>
+  <script type="text/javascript" src="js/languageDetail.js"></script>
+</head>
+
+<body>
+  <!-- DATA EXTENSION -->
+  <div class="slds-grid slds-gutters slds-grid_align-center">
+    <div class="slds-col slds-size_1-of-7">
+      <label class="slds-form-element__label" for="text-input-id-1">
+        <abbr class="slds-required" title="required">* </abbr>Data Extension Name</label>
+    </div>
+    <div class="slds-col slds-size_1-of-7">
+      <input type="text" id="data-extension" placeholder="" required="" class="slds-input" />
+    </div>
+    <div class="slds-col slds-size_1-of-7">
+      <button class="slds-button slds-button_neutral" id="save" onclick="saveDeName()">Save</button>
+      <button class="slds-button slds-button_neutral" id="edit" onclick="editDeName()">Edit</button>
+    </div>
+  </div>
+
+  <div class="box-container slds-grid slds-gutters slds-grid_align-center" style="padding:2em">
+    <!-- LIST -->
+    <div class="box slds-grid slds-grid_align-center">
+      <div class="language-output" style="width:60%">
+        <div>
+          <div id="langauge-container"></div>
+        </div>
       </div>
     </div>
-  </body>
+    <!-- DETAIL -->
+    <div class="box slds-border_left slds-grid slds-grid_align-center">
+      <div id="placeholder-notification" style="margin-top: 2em">Select a language or click + to add one</div>
+      <div id="notification" style="width: 80%;">
+        <div id="select-element" class="slds-form-element">
+          <label class="slds-form-element__label" for="text-input-id-1">
+            <abbr class="slds-required" title="required">* </abbr>Language</label>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select class="slds-select" id="select-language">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="text-input-id-1">
+            <abbr class="slds-required" title="required">* </abbr>Title</label>
+          <div class="slds-form-element__control">
+            <input type="text" id="title" class="slds-input" />
+          </div>
+        </div>
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="textarea-id-01">
+            <abbr class="slds-required" title="required">* </abbr>Text</label>
+          <div class="slds-form-element__control">
+            <textarea id="text" class="slds-textarea" rows="9"></textarea>
+          </div>
+        </div>
+        <button class="slds-button slds-button_neutral" id="saveNotification" onclick="saveNotification()">Save</button>
+        <button class="slds-button slds-button_neutral" id="editNotification" onclick="editNotification()">Edit</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
 </html>

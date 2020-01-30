@@ -1,12 +1,29 @@
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
 body {
-    padding: 20px;
-    margin: 0;
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  padding: 2em;
+  background: white !important;
+  display: flex;
+  flex-direction: column;
 }
 
-.step {
-    display: none;
+.box-container {
+  flex: 1;
 }
 
-#step1 {
-    display: block;
+.box {
+  width: 100%;
+  padding: 1em;
+}
+
+.language-output {
+  width: 40%;
+  text-align: center;
 }
