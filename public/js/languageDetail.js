@@ -16,7 +16,8 @@ function saveNotification() {
 
   toggleNotification(true)
   if (!langSelected) {
-    languages.push({
+    langSelected = $('#select-language').val()
+    notifications.push({
       language: $('#select-language').val(),
       title: $('#title').val(),
       text: $('#text').val()
@@ -32,16 +33,16 @@ function saveNotification() {
       $('#add-button').hide()
     }
   } else {
-    languages = languages.map(e => {
-      if (e.language === langSelected.language) {
-        e = {
-          ...e,
+    notifications = notifications.map(n => {
+      if (n.language === langSelected.language) {
+        n = {
+          ...n,
           title: $('#title').val(),
           text: $('#text').val()
         }
       }
 
-      return e
+      return n
     })
   }
 }

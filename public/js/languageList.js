@@ -24,7 +24,7 @@ function showNotification(id) {
   $('#placeholder-notification').hide()
   $('#notification').show()
 
-  langSelected = languages.find(e => e.language === id)
+  langSelected = notifications.find(n => n.language === id)
 
   $('#title').val(langSelected.title).prop("disabled", true)
   $('#text').val(langSelected.text).prop("disabled", true)
@@ -32,6 +32,19 @@ function showNotification(id) {
   $('#editNotification').show()
 }
 
-function deleteNotification() {
+function hideNotification() {
+  $('#placeholder-notification').show()
+  $('#notification').hide()
+}
 
+function deleteNotification(id) {
+  langSelected = ''
+
+  let langToDelete = id.split('-')[1]
+  notifications = notifications.filter(n => n.language !== langToDelete)
+  aviableLangs.push(langToDelete)
+
+  appendLanguages()
+  hideNotification()
+  $('#add-button').show()
 }

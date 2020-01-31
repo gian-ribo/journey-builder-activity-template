@@ -1,5 +1,5 @@
 let aviableLangs = ['english', 'russian', 'italian']
-let languages = [{"language":"italian", "text":"ciao", "title":"ciao"}]
+let notifications = []
 let langSelected = ''
 
 $(function () {
@@ -17,7 +17,7 @@ $(function () {
 
   appendLanguages()
 
-  aviableLangs = aviableLangs.filter(e => !languages.some(i => e === i.language))
+  aviableLangs = aviableLangs.filter(e => !notifications.some(n => e === n.language))
 })
 
 async function handleClick() {
